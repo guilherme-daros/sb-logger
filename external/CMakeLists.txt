@@ -8,5 +8,5 @@ set(CMAKE_C_STANDARD_REQUIRED True)
 add_subdirectory(sb-types)
 
 if(FRAMEWORK STREQUAL "gtest")
-    add_subdirectory(googletest)
+  add_subdirectory(googletest)
 endif()
