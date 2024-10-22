@@ -98,34 +98,30 @@ class Logger {
  public:
   struct Debug : public Log {
     Debug(const uint32_t id = gettid(), const std::source_location file_src = std::source_location::current())
-        : Log(Level::Debug, output_.stream(), mtx_, id, file_src) {}
+        : Log(Level::Debug, output_.stream(), output_.mutex(), id, file_src) {}
   };
 
   struct Info : public Log {
     Info(const uint32_t id = gettid(), const std::source_location file_src = std::source_location::current())
-        : Log(Level::Info, output_.stream(), mtx_, id, file_src) {}
+        : Log(Level::Info, output_.stream(), output_.mutex(), id, file_src) {}
   };
 
   struct Warning : public Log {
     Warning(const uint32_t id = gettid(), const std::source_location file_src = std::source_location::current())
-        : Log(Level::Warning, output_.stream(), mtx_, id, file_src) {}
+        : Log(Level::Warning, output_.stream(), output_.mutex(), id, file_src) {}
   };
 
   struct Error : public Log {
     Error(const uint32_t id = gettid(), const std::source_location file_src = std::source_location::current())
-        : Log(Level::Error, output_.stream(), mtx_, id, file_src) {}
+        : Log(Level::Error, output_.stream(), output_.mutex(), id, file_src) {}
   };
 
-  static std::mutex mtx_;
   static Level logging_level;
   static Output output_;
 };
 
 template <types::StringLiteral domain, typename... Configs>
-Level Logger<domain, Configs...>::logging_level = Level::Debug;
-
-template <types::StringLiteral domain, typename... Configs>
-std::mutex Logger<domain, Configs...>::mtx_;
+Level Logger<domain, Configs...>::logging_level = Level::Info;
 
 template <types::StringLiteral domain, typename... Configs>
 output::Output<Configs...> Logger<domain, Configs...>::output_;

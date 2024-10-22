@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include <mutex>
 #include <ostream>
 
 #include "Meta.hpp"
@@ -12,6 +13,8 @@ class Console;
 class Base {
  public:
   using Default = Console;
+
+  virtual auto mutex() -> std::mutex& = 0;
   virtual auto stream() -> std::ostream& = 0;
 };
 
@@ -27,6 +30,11 @@ class Console : public Base {
     static auto& pStream = std::cout;
     return pStream;
   }
+
+  auto mutex() -> std::mutex& override { return mtx_; }
+
+ private:
+  inline static std::mutex mtx_;
 };
 
 }  // namespace sb::logger::output
