@@ -1,0 +1,11 @@
+{
+"rules": [
+{
+"primary-output": "extern/antimony-types/examples/SingletonApp/CMakeFiles/SingletonApp.dir/Main.cpp.o",
+"requires": [
+]
+}
+],
+"version": 0,
+"revision": 0
+}

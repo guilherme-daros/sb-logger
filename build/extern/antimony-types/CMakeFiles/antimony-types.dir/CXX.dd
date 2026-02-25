@@ -1,0 +1,3 @@
+ninja_dyndep_version = 1.0
+build extern/antimony-types/CMakeFiles/antimony-types.dir/src/ThreadPool.cpp.o: dyndep
+

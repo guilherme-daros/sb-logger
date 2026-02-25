@@ -1,0 +1,3 @@
+[submodule "extern/antimony-types"]
+	path = extern/antimony-types
+	url = /home/geagaa/workspace/playground/antimony-types

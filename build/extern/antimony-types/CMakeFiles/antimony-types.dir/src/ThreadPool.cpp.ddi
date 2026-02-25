@@ -1,0 +1,11 @@
+{
+"rules": [
+{
+"primary-output": "extern/antimony-types/CMakeFiles/antimony-types.dir/src/ThreadPool.cpp.o",
+"requires": [
+]
+}
+],
+"version": 0,
+"revision": 0
+}
