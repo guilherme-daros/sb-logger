@@ -5,7 +5,9 @@ set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # 1. Dependency: Types (Submodule)
-add_subdirectory(extern/antimony-types)
+if(NOT TARGET sb::types)
+    add_subdirectory(extern/antimony-types)
+endif()
 
 # 2. Define the library (Header-only)
 add_library(antimony-logger INTERFACE)
