@@ -12,7 +12,7 @@ A modern, domain-based logging system for C++23. Designed for performance and fl
 - **Header-only:** Easy to integrate into any project.
 
 ## Dependencies
-- `antimony-types` (for `StringLiteral`).
+- `sb-types` (for `StringLiteral`).
 
 ## Usage (CMake)
 ```cmake
