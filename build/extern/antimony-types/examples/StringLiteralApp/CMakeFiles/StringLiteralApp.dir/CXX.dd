@@ -1,3 +1,0 @@
-ninja_dyndep_version = 1.0
-build extern/antimony-types/examples/StringLiteralApp/CMakeFiles/StringLiteralApp.dir/Main.cpp.o: dyndep
-
