@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # 1. Dependency: Types (Submodule)
 if(NOT TARGET sb::types)
-    add_subdirectory(extern/antimony-types)
+    add_subdirectory(extern/sb-types)
 endif()
 
 # 2. Define the library (Header-only)
