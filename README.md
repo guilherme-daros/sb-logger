@@ -1,4 +1,4 @@
-# sb-logger
+# Antimony Logger
 
 A modern, domain-based logging system for C++23. Designed for performance and flexibility with compile-time configuration.
 
