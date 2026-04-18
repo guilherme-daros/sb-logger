@@ -5,7 +5,7 @@
 #include <format>
 #include <string_view>
 
-#include "../Meta.hpp"
+#include "meta/Meta.hpp"
 
 namespace sb::logger::config {
 
@@ -59,6 +59,6 @@ class Timestamp {
 constexpr auto is_timing = []<typename T>() { return IsTiming<T>; };
 
 template <typename... Ts>
-using Timing = meta::TypeFinder_t<Timestamp, is_timing, Ts...>;
+using Timing = sb::meta::TypeFinder_t<Timestamp, is_timing, Ts...>;
 
 }  // namespace sb::logger::config

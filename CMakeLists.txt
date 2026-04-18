@@ -4,9 +4,12 @@ project(antimony-logger VERSION 1.0.0 LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-# 1. Dependency: Types (Submodule)
+# 1. Dependencies (Submodules)
 if(NOT TARGET sb::types)
     add_subdirectory(extern/sb-types)
+endif()
+if(NOT TARGET sb::meta)
+    add_subdirectory(extern/sb-meta)
 endif()
 
 # 2. Define the library (Header-only)
@@ -21,8 +24,8 @@ target_include_directories(antimony-logger INTERFACE
 # 4. Mandate C++23 for all consumers
 target_compile_features(antimony-logger INTERFACE cxx_std_23)
 
-# 5. Link against types (Internal dependency)
-target_link_libraries(antimony-logger INTERFACE sb::types)
+# 5. Link against dependencies
+target_link_libraries(antimony-logger INTERFACE sb::types sb::meta)
 
 # 6. Create an alias (sb::logger)
 add_library(sb::logger ALIAS antimony-logger)

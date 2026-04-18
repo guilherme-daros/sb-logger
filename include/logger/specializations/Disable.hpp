@@ -3,7 +3,7 @@
 #include <ostream>
 #include <type_traits>
 
-#include "logger/Meta.hpp"
+#include "meta/Meta.hpp"
 #include "logger/config/Disable.hpp"
 #include "types/StringLiteral.hpp"
 
@@ -12,7 +12,7 @@ namespace sb::logger {
 constexpr auto is_disabled = []<typename T>() { return std::is_same_v<T, config::Disable>; };
 
 template <types::StringLiteral domain, typename... Configs>
-  requires(meta::any_of<is_disabled, Configs...>)
+  requires(sb::meta::any_of<is_disabled, Configs...>)
 class Logger<domain, Configs...> {
   class Log {
    public:

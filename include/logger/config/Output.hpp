@@ -5,7 +5,7 @@
 #include <mutex>
 #include <ostream>
 
-#include "../Meta.hpp"
+#include "meta/Meta.hpp"
 
 namespace sb::logger::config {
 
@@ -46,6 +46,6 @@ class Terminal {
 constexpr auto is_output = []<typename T>() { return IsOutput<T>; };
 
 template <typename... Ts>
-using Output = meta::TypeFinder_t<Console, is_output, Ts...>;
+using Output = sb::meta::TypeFinder_t<Console, is_output, Ts...>;
 
 }  // namespace sb::logger::config
