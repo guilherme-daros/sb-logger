@@ -1,3 +1,6 @@
-[submodule "extern/sb-types"]
+[submodule "sb-types"]
 	path = extern/sb-types
 	url = git@github.com:guilherme-daros/sb-types.git
+[submodule "sb-meta"]
+	path = extern/sb-meta
+	url = git@github.com:guilherme-daros/sb-meta.git

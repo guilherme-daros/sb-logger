@@ -1,4 +1,4 @@
-# Antimony Logger
+# sb-logger
 
 A modern, domain-based logging system for C++23. Designed for performance and flexibility with compile-time configuration.
 
@@ -12,10 +12,11 @@ A modern, domain-based logging system for C++23. Designed for performance and fl
 - **Header-only:** Easy to integrate into any project.
 
 ## Dependencies
-- `antimony-types` (for `StringLiteral`).
+- `sb-types` (for `StringLiteral`).
+- `sb-meta` (for metaprogramming utilities).
 
 ## Usage (CMake)
 ```cmake
-add_subdirectory(extern/antimony-logger)
+add_subdirectory(extern/sb-logger)
 target_link_libraries(YourTarget PRIVATE sb::logger)
 ```
