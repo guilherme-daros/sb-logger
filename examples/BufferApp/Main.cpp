@@ -25,5 +25,14 @@ int main() {
 
   Logger::flush();
 
+  std::cout << "--- Testing Auto-Flush ---" << std::endl;
+  using AutoFlushLogger = sb::logger::Logger<"AutoFlush", sb::logger::config::BufferConfig<50>>;
+  AutoFlushLogger::logging_level = sb::logger::Level::Debug;
+
+  std::cout << "Writing messages to small buffer (capacity 50)..." << std::endl;
+  // Each message is > 50 chars formatted, so it should flush automatically on every message or every 1-2 messages
+  AutoFlushLogger::Info() << "Auto flush message 1";
+  AutoFlushLogger::Info() << "Auto flush message 2";
+
   return 0;
 }

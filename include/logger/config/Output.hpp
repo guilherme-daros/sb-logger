@@ -1,11 +1,13 @@
 #pragma once
 
 #include <concepts>
+#include <fstream>
 #include <iostream>
 #include <mutex>
 #include <ostream>
 
 #include "meta/Meta.hpp"
+#include "types/StringLiteral.hpp"
 
 namespace sb::logger::config {
 
@@ -30,11 +32,12 @@ class Console {
   inline static std::mutex mtx_;
 };
 
-class Terminal {
+template <types::StringLiteral FilePath>
+class File {
  public:
   auto stream() -> std::ostream& {
-    static auto& pStream = std::cout;
-    return pStream;
+    static std::ofstream ofs{FilePath.data, std::ios::out | std::ios::app};
+    return ofs;
   }
 
   auto mutex() -> std::mutex& { return mtx_; }
