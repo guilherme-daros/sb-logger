@@ -11,6 +11,9 @@ endif()
 if(NOT TARGET sb::meta)
     add_subdirectory(extern/sb-meta)
 endif()
+if(NOT TARGET sb::container)
+    add_subdirectory(extern/sb-container)
+endif()
 
 # 2. Define the library (Header-only)
 add_library(sb-logger INTERFACE)
@@ -25,7 +28,7 @@ target_include_directories(sb-logger INTERFACE
 target_compile_features(sb-logger INTERFACE cxx_std_23)
 
 # 5. Link against dependencies
-target_link_libraries(sb-logger INTERFACE sb::types sb::meta)
+target_link_libraries(sb-logger INTERFACE sb::types sb::meta sb::container)
 
 # 6. Create an alias (sb::logger)
 add_library(sb::logger ALIAS sb-logger)
@@ -34,4 +37,17 @@ add_library(sb::logger ALIAS sb-logger)
 option(BUILD_EXAMPLES "Build examples" ON)
 if(BUILD_EXAMPLES)
     add_subdirectory(examples)
+endif()
+
+# Tools
+option(BUILD_TOOLS "Build tools" ON)
+if(BUILD_TOOLS)
+    add_subdirectory(tools)
+endif()
+
+# Tests
+option(BUILD_TESTS "Build tests" ON)
+if(BUILD_TESTS)
+    enable_testing()
+    add_subdirectory(tests)
 endif()
