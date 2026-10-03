@@ -6,7 +6,7 @@ namespace sb::logger {
 
 enum class Level { None, Error, Warning, Info, Debug };
 
-inline auto to_string(Level level) -> std::string_view {
+constexpr auto to_string(Level level) -> std::string_view {
   // clang-format off
   switch (level) {
     case Level::None:    return "None";
